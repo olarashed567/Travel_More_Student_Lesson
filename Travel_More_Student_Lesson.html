@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel More - HTML & CSS Student Lesson</title>
+    <style>
+        /* Styling for this student lesson page */
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: Arial, sans-serif; background: #f3f6fa; color: #243044; line-height: 1.6; }
+        .lesson-header { background: #173858; color: white; padding: 32px 6%; }
+        .lesson-header h1 { margin-bottom: 8px; }
+        .lesson { max-width: 1100px; margin: 28px auto; padding: 0 18px; }
+        .lesson-section { background: white; border-radius: 10px; padding: 24px; margin-bottom: 28px; box-shadow: 0 3px 12px #14263b12; }
+        h2 { color: #173858; margin-bottom: 10px; }
+        h3 { margin: 20px 0 8px; color: #bd6500; }
+        p { margin: 8px 0 14px; }
+        .preview { border: 1px solid #d9e1ea; border-radius: 8px; padding: 18px; margin: 12px 0; overflow: hidden; }
+        pre { background: #172536; color: #f4f7fb; padding: 16px; border-radius: 8px; overflow-x: auto; white-space: pre; font-size: 13px; line-height: 1.5; }
+        code { font-family: Consolas, monospace; }
+        .note { background: #fff5e8; border-left: 4px solid #f08a19; padding: 12px; margin: 12px 0; }
+        /* NAVBAR preview */
+        .demo-nav { background: #1e3a5f; padding: 14px 18px; display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; border-radius: 6px; }
+        .demo-nav .brand { color: white; font-size: 22px; font-weight: bold; margin: 0; }
+        .demo-nav ul { list-style: none; display: flex; gap: 16px; flex-wrap: wrap; }
+        .demo-nav a { color: white; text-decoration: none; }
+        .demo-nav a:hover { color: #ff9b24; }
+        .demo-button { display: inline-block; background: #ff8a00; color: white; border: 0; border-radius: 5px; padding: 9px 15px; cursor: pointer; font: inherit; }
+        /* HERO preview */
+        .demo-hero { display: flex; align-items: center; gap: 20px; background: linear-gradient(135deg,#1e3a5f,#4779a8); color: white; padding: 22px; border-radius: 7px; }
+        .demo-hero > div { flex: 1 1 300px; min-width: 0; }
+        .demo-hero img { width: 100%; display: block; border-radius: 7px; }
+        /* CARDS preview */
+        .demo-cards { display: flex; gap: 14px; flex-wrap: wrap; }
+        .demo-card { flex: 1 1 220px; max-width: 320px; background: #fff; border: 1px solid #e3eaf1; border-radius: 10px; overflow: hidden; box-shadow: 0 4px 12px #00000014; transition: transform .3s ease; }
+        .demo-card:hover { transform: translateY(-6px); }
+        .demo-card-content { padding: 16px; }
+        .demo-card h4 { color: #1e3a5f; margin: 0 0 8px; }
+        .demo-card p { margin: 0 0 12px; }
+        .demo-card a { color: #087f8c; font-weight: bold; text-decoration: none; }
+        .demo-card a:hover { text-decoration: underline; }
+        .demo-card h4 { color: #1e3a5f; margin-bottom: 8px; }
+        /* GALLERY preview */
+        .demo-gallery { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 10px; }
+        .demo-gallery img { width: 100%; height: 125px; object-fit: cover; border-radius: 6px; }
+        .demo-gallery img:first-child { grid-column: span 2; }
+        @keyframes rise { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: translateY(0); } }
+        .demo-hero h3 { color: white; animation: rise 0.8s ease both; }
+        @media (max-width: 700px) {
+            .demo-hero { flex-direction: column; text-align: center; }
+            .demo-gallery { grid-template-columns: repeat(2,minmax(0,1fr)); }
+            .demo-gallery img:first-child { grid-column: span 2; }
+        }
+        @media (max-width: 480px) {
+            .demo-nav { flex-direction: column; }
+            .demo-nav ul { justify-content: center; gap: 10px; }
+            .demo-gallery { grid-template-columns: 1fr; }
+            .demo-gallery img:first-child { grid-column: auto; }
+        }
+    </style>
+</head>
+<body>
+<header class="lesson-header">
+    <h1>Travel More - Student Lesson</h1>
+    <p>Learn how to build the website one section at a time. Each section has a preview, its HTML, and its CSS.</p>
+</header>
+
+<main class="lesson">
+    <section class="lesson-section">
+        <h2>1. Navigation Bar (Navbar)</h2>
+        <p><strong>What does it do?</strong> The navigation bar appears at the top of the page. It contains the website name, links to sections, and a booking button. We use Flexbox to place these items in one row.</p>
+        <div class="preview">
+            <nav class="demo-nav">
+                <h1 class="brand">Travel More</h1>
+                <ul>
+                    <li><a href="#home">Home</a></li><li><a href="#destinations">Destinations</a></li>
+                    <li><a href="#gallery">Gallery</a></li>
+                </ul>
+                <button class="demo-button" type="button">Book Now</button>
+            </nav>
+        </div>
+        <h3>HTML code</h3>
+        <pre><code>&lt;nav class="navbar"&gt;
+    &lt;h1 class="logo"&gt;Travel More&lt;/h1&gt;
+    &lt;ul class="nav-links"&gt;
+        &lt;li&gt;&lt;a href="#home"&gt;Home&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#destinations"&gt;Destinations&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#gallery"&gt;Gallery&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#contact"&gt;Contact&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+    &lt;button class="button" type="button"&gt;Book Now&lt;/button&gt;
+&lt;/nav&gt;</code></pre>
+        <h3>CSS code</h3>
+        <pre><code>.navbar {
+    background-color: #1E3A5F;
+    padding: 20px 6%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+.logo { color: white; font-size: 26px; font-weight: bold; }
+.nav-links { list-style: none; display: flex; gap: 20px; }
+.nav-links a { color: white; text-decoration: none; }
+.nav-links a:hover { color: #FF8A00; }
+.button {
+    background-color: #FF8A00;
+    color: white;
+    border: none;
+    padding: 10px 18px;
+    border-radius: 5px;
+    cursor: pointer;
+    font: inherit;
+}</code></pre>
+        <div class="note">Remember: <code>display: flex</code> arranges the navbar items, while <code>justify-content: space-between</code> spreads them across the row.</div>
+    </section>
+
+    <section class="lesson-section" id="home">
+        <h2>2. Hero Section</h2>
+        <p><strong>What does it do?</strong> This is the main introduction area. It includes a large heading, a short paragraph, a button, and a travel image. Flexbox places the text and image beside each other.</p>
+        <div class="preview">
+            <div class="demo-hero">
+                <div><h3>Find Your Way to Wonderful Places</h3><p>Explore amazing places and create unforgettable memories.</p><button class="demo-button" type="button">Explore Now</button></div>
+                <div><img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&amp;fit=crop&amp;w=900&amp;q=80" alt="Sunny beach"></div>
+            </div>
+        </div>
+        <h3>HTML code</h3>
+        <pre><code>&lt;section class="hero" id="home"&gt;
+    &lt;div class="hero-content"&gt;
+        &lt;h1&gt;Find Your Way to Wonderful Places&lt;/h1&gt;
+        &lt;p&gt;Explore amazing places and create unforgettable memories.&lt;/p&gt;
+        &lt;button class="button" type="button"&gt;Explore Now&lt;/button&gt;
+    &lt;/div&gt;
+    &lt;div class="hero-image"&gt;
+        &lt;img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&amp;fit=crop&amp;w=900&amp;q=80" alt="Sunny beach"&gt;
+    &lt;/div&gt;
+&lt;/section&gt;</code></pre>
+        <h3>CSS code</h3>
+        <pre><code>.hero {
+    display: flex;
+    align-items: center;
+    gap: 35px;
+    padding: 60px 6%;
+    color: white;
+    background: linear-gradient(135deg, #1E3A5F, #4779A8);
+}
+.hero-content, .hero-image { flex: 1 1 300px; }
+.hero-image img { width: 100%; display: block; border-radius: 10px; }
+.hero h1 { font-size: 36px; margin-bottom: 15px; }
+.hero p { line-height: 1.6; margin-bottom: 20px; }</code></pre>
+        <div class="note">Remember: <code>width: 100%</code> makes the image fit its container. The gradient is created with <code>linear-gradient()</code>.</div>
+    </section>
+
+    <section class="lesson-section">
+        <h2>3. CSS Animation</h2>
+        <p><strong>What does it do?</strong> CSS animation adds movement to an element. The <code>@keyframes</code> rule describes how the element changes from its starting state to its ending state.</p>
+        <div class="preview">
+            <div class="demo-hero"><div><h3>Watch this heading appear!</h3><p>The heading uses a simple fade-up animation.</p></div></div>
+        </div>
+        <h3>CSS code</h3>
+        <pre><code>.hero-content h1 {
+    animation: fadeUp 1s ease-in-out;
+}
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}</code></pre>
+        <div class="note">Remember: <code>from</code> is the beginning of the animation and <code>to</code> is the ending. The duration here is <code>1s</code>.</div>
+    </section>
+
+    <section class="lesson-section" id="destinations">
+        <h2>4. Explore Egypt (Destination Cards)</h2>
+        <p><strong>What does it do?</strong> Each destination card contains only a heading, a short paragraph, and a Learn More link. There are no images inside these cards. Flexbox places the cards in a responsive row.</p>
+        <div class="preview">
+            <div class="demo-cards">
+                <article class="demo-card"><div class="demo-card-content"><h4 class="heading">Alexandria</h4><p>Walk along the Mediterranean coast, enjoy the sea breeze, and explore the city’s historic waterfront.</p><a href="#gallery">Learn More</a></div></article>
+                <article class="demo-card"><div class="demo-card-content"><h4 class="heading">Luxor</h4><p>Discover ancient temples, royal history, and the remarkable monuments of Upper Egypt.</p><a href="#gallery">Learn More</a></div></article>
+                <article class="demo-card"><div class="demo-card-content"><h4 class="heading">Aswan</h4><p>Relax beside the Nile, visit colorful Nubian villages, and enjoy peaceful island views.</p><a href="#gallery">Learn More</a></div></article>
+            </div>
+        </div>
+        <h3>HTML code</h3>
+        <pre><code>&lt;section class="destinations" id="destinations"&gt;
+    &lt;h2&gt;Places to Explore&lt;/h2&gt;
+    &lt;div class="cards-container"&gt;
+        &lt;article class="card"&gt;
+            &lt;div class="card-content"&gt;
+                &lt;h3 class="heading"&gt;Alexandria&lt;/h3&gt;
+                &lt;p&gt;Walk along the Mediterranean coast, enjoy the sea breeze, and explore the city’s historic waterfront.&lt;/p&gt;
+                &lt;a href="#gallery"&gt;Learn More&lt;/a&gt;
+            &lt;/div&gt;
+        &lt;/article&gt;
+        &lt;article class="card"&gt;
+            &lt;div class="card-content"&gt;
+                &lt;h3 class="heading"&gt;Luxor&lt;/h3&gt;
+                &lt;p&gt;Discover ancient temples, royal history, and the remarkable monuments of Upper Egypt.&lt;/p&gt;
+                &lt;a href="#gallery"&gt;Learn More&lt;/a&gt;
+            &lt;/div&gt;
+        &lt;/article&gt;
+        &lt;article class="card"&gt;
+            &lt;div class="card-content"&gt;
+                &lt;h3 class="heading"&gt;Aswan&lt;/h3&gt;
+                &lt;p&gt;Relax beside the Nile, visit colorful Nubian villages, and enjoy peaceful island views.&lt;/p&gt;
+                &lt;a href="#gallery"&gt;Learn More&lt;/a&gt;
+            &lt;/div&gt;
+        &lt;/article&gt;
+    &lt;/div&gt;
+&lt;/section&gt;</code></pre>
+        <h3>CSS code</h3>
+        <pre><code>.destinations { padding: 60px 8%; text-align: center; }
+.cards-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 25px;
+}
+.card {
+    flex: 1 1 250px;
+    max-width: 320px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+    transition: transform 0.3s ease;
+}
+.card-content { padding: 24px; text-align: left; }
+.card-content .heading { margin-bottom: 10px; }
+.card-content p { margin-bottom: 18px; line-height: 1.6; }
+.card-content a { color: #087f8c; text-decoration: none; font-weight: bold; }
+.card:hover { transform: translateY(-8px); }</code></pre>
+        <div class="note">Remember: each card contains only a <code>.heading</code>, a paragraph, and a Learn More link. There is no image inside the card. The link navigates, so it correctly uses an <code>&lt;a&gt;</code> tag.</div>
+    </section>
+
+    <section class="lesson-section" id="gallery">
+        <h2>5. Our Gallery</h2>
+        <p><strong>What does it do?</strong> The gallery displays five travel photographs. CSS Grid divides the area into columns. The first image takes two columns to create a larger image.</p>
+        <div class="preview">
+            <div class="demo-gallery">
+                <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&amp;fit=crop&amp;w=800&amp;q=80" alt="Mountain landscape">
+                <img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&amp;fit=crop&amp;w=500&amp;q=80" alt="Lake and mountains">
+                <img src="https://images.unsplash.com/photo-1516483638261-f4dbaf036963?auto=format&amp;fit=crop&amp;w=500&amp;q=80" alt="Coastal village">
+                <img src="https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&amp;fit=crop&amp;w=500&amp;q=80" alt="Lake view">
+                <img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&amp;fit=crop&amp;w=500&amp;q=80" alt="Mountain peaks">
+            </div>
+        </div>
+        <h3>HTML code</h3>
+        <pre><code>&lt;section class="gallery-section" id="gallery"&gt;
+    &lt;h2&gt;OUR GALLERY&lt;/h2&gt;
+    &lt;div class="gallery"&gt;
+        &lt;img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&amp;fit=crop&amp;w=800&amp;q=80" alt="Mountain landscape"&gt;
+        &lt;img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&amp;fit=crop&amp;w=500&amp;q=80" alt="Lake and mountains"&gt;
+        &lt;img src="https://images.unsplash.com/photo-1516483638261-f4dbaf036963?auto=format&amp;fit=crop&amp;w=500&amp;q=80" alt="Coastal village"&gt;
+        &lt;img src="https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&amp;fit=crop&amp;w=500&amp;q=80" alt="Lake view"&gt;
+        &lt;img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&amp;fit=crop&amp;w=500&amp;q=80" alt="Mountain peaks"&gt;
+    &lt;/div&gt;
+&lt;/section&gt;</code></pre>
+        <h3>CSS code</h3>
+        <pre><code>.gallery-section { padding: 55px 6%; text-align: center; }
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+}
+.gallery img {
+    width: 100%;
+    height: 190px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+.gallery img:first-child { grid-column: span 2; }</code></pre>
+        <div class="note">Remember: <code>grid-template-columns: repeat(3, 1fr)</code> creates three equal columns. <code>object-fit: cover</code> fills the image box without stretching it.</div>
+    </section>
+
+    <section class="lesson-section">
+        <h2>6. Responsive Design (Media Queries)</h2>
+        <p><strong>What does it do?</strong> Media queries change the layout depending on screen width. On smaller screens, the hero becomes vertical, the gallery uses fewer columns, and the navbar stacks.</p>
+        <h3>CSS code</h3>
+        <pre><code>/* Tablet and small screens */
+@media (max-width: 768px) {
+    .navbar { flex-direction: column; gap: 15px; }
+    .nav-links { flex-wrap: wrap; justify-content: center; }
+    .hero { flex-direction: column; text-align: center; }
+    .hero-content, .hero-image { flex: 1 1 300px; width: 100%; }
+    .gallery { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* Mobile screens */
+@media (max-width: 480px) {
+    .gallery { grid-template-columns: 1fr; }
+    .gallery img:first-child { grid-column: auto; }
+    .cards-container { flex-direction: column; align-items: center; }
+    .card { width: 100%; }
+}</code></pre>
+        <div class="note">These media queries use the same class names as the HTML examples above, so you can copy the code directly into your project.</div>
+    </section>
+
+    <section class="lesson-section">
+        <h2>How to practice</h2>
+        <ol>
+            <li>Create a file named <code>index.html</code>.</li>
+            <li>Copy the HTML section examples into the body of your page.</li>
+            <li>Copy the CSS examples into a <code>&lt;style&gt;</code> tag in the head, or into a separate <code>style.css</code> file.</li>
+            <li>Save the file and open it in a browser.</li>
+            <li>Change colors, text, and image links to practice.</li>
+        </ol>
+        <p class="note">This lesson is organized for teaching: each part shows what the section does, a visual preview, then the HTML and CSS that build it.</p>
+    </section>
+</main>
+</body>
+</html>
